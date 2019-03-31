@@ -16,9 +16,15 @@
         </div>
     </div>
 
+    <a href="{% url 'all_images' %}">
+        <button type="button" class="btn btn-success btn-block">
+            All Images
+        </button>
+    </a>
+
     <a href="{% url 'new_upload' %}">
         <button type="button" class="btn btn-primary my-4">
-            <span class="glyphicon glyphicon-cloud-upload"></span> Upload Image
+            Upload Image
         </button>
     </a>
     <a href="{% url 'delete_image' image.pk %}">

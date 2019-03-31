@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if image_not_exists %}
+
+    {% endblock %}
+
+    {% for image in images_name %}
+    <div class="card">
+        <a href="{{ image.image.url }}"><img class="card-img-top" src="{{ image.image.url }}" alt="Image"></a>
+        <div class="card-body">
+            <h5 class="card-title">{{ image.name }}</h5>
+            <p class="card-text">{{ image.description }}</p>
+            <p class="card-text">Created by: {{ image.createdby }}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

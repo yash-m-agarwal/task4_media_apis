@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <a href="{% url 'new_upload' %}">
+        <button type="button" class="btn btn-primary my-4">Upload Image</button>
+    </a>
+    <a href="{% url 'all_images' %}">
+        <button type="button" class="btn btn-dark">View All Images</button>
+    </a>
+    <a href="{% url 'find_image_by_name' %}">
+        <button type="button" class="btn btn-info">Find by name</button>
+    </a>
+
+    <br>
+    {% for image in images %}
+        <a href="{% url 'image_view' image.pk %}" style="font-size: 20px">image/{{ image.pk }}/</a>
+        <br>
+    {% endfor %}
+
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

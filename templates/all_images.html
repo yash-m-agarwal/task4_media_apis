@@ -5,12 +5,19 @@
     <div class="card">
         <a href="{{ image.image.url }}"><img class="card-img-top" src="{{ image.image.url }}" alt="Image"></a>
         <div class="card-body">
+            <a href="{% url 'image_view' image.pk %}" style="font-size: 20px">View image to perform actions</a><br>
             <h5 class="card-title">{{ image.name }}</h5>
             <p class="card-text">{{ image.description }}</p>
             <p class="card-text">Created by: {{ image.createdby }}</p>
         </div>
     </div>
     {% endfor %}
+
+    <a href="{% url 'all_images' %}">
+        <button type="button" class="btn btn-success btn-block">
+            All Images
+        </button>
+    </a>
 
     <a href="{% url 'new_upload' %}">
         <button type="button" class="btn btn-primary my-4">

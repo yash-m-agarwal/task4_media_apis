@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 from apis import views
 
 urlpatterns = [
+    url(r'^$', views.home, name='home'),
     url(r'^images/$', views.all_images, name='all_images'),
     url(r'^image/(?P<pk>\d+)/$', views.image_view, name='image_view'),
     url(r'^image/new$', views.new_upload, name='new_upload'),

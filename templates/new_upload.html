@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="my-4">
-        <form id="submit_image" method="post">
+        <form id="submit_image" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">
                 <label for="id_name">Name</label>
@@ -32,7 +32,7 @@
                     </svg>
                 </div>
                 <span style="font-size: 20px;">Click on add button to upload images</span>
-                <input type="file" style="display: none;" class="form-group" id="id_image" name="images" multiple>
+                <input type="file" style="visibility: hidden" class="form-group" id="id_image" name="image" multiple>
             </div>
             <button type="submit" class="btn btn-success" id="submitBtn">Create</button>
         </form>
