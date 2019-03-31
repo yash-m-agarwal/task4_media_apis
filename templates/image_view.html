@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ image.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        {% if image.image %}
+            <a href="{{ image.image.url }}"><img class="card-img-top" src="{{ image.image.url }}" alt="Image"></a>
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">{{ image.name }}</h5>
+            <p class="card-text">{{ image.description }}</p>
+            <p class="card-text">Created by: {{ image.createdby }}</p>
+        </div>
+    </div>
+
+    <a href="{% url 'new_upload' %}">
+        <button type="button" class="btn btn-primary my-4">
+            <span class="glyphicon glyphicon-cloud-upload"></span> Upload Image
+        </button>
+    </a>
+    <a href="{% url 'delete_image' image.pk %}">
+        <button type="button" class="btn btn-danger">
+            Delete
+        </button>
+    </a>
+    <a href="{% url 'update_image' image.pk %}">
+        <button type="button" class="btn btn-warning">
+            Update
+        </button>
+    </a>
+{% endblock %}
+
+

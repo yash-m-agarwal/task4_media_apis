@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="my-4">
+        <form id="submit_image" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">Name</label>
+                <input type="text" class="form-control" id="id_name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="id_description">Description</label>
+                <input type="text" class="form-control" id="id_description" name="description">
+            </div>
+            <div class="form-group">
+                <label for="id_createdby">Created By</label>
+                <input type="text" class="form-control" id="id_createdby" name="createdby">
+            </div>
+            <table id="gallery" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Added Images</th>
+                    </tr>
+                </thead>
+                <tbody style="color: #007bff">
+                </tbody>
+            </table>
+            <div class="form-group">
+                <div class="butn" style="width: 40px; display: inline; background-color: #ffffff">
+                    <svg width="26" height="25" baseProfile="full" viewBox="0 0 26 25" class="symbol icon add">
+                        <path d="M12.99 0C6.189 0 .51 5.678.51 12.479.51 19.28 6.189 25 12.99 25c6.8 0 12.5-5.699 12.5-12.5S19.79 0 12.99 0zm6.676 14h-5v5h-3v-5h-5v-3h5V6h3v5h5v3z">
+                        </path>
+                    </svg>
+                </div>
+                <span style="font-size: 20px;">Click on add button to upload images</span>
+                <input type="file" style="display: none;" class="form-group" id="id_image" name="images" multiple>
+            </div>
+            <button type="submit" class="btn btn-success" id="submitBtn">Create</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $('.butn').click(function () {
+            $('#id_image').click();
+        });
+
+        $('#id_image').on('input', function () {
+            $("#gallery tbody").prepend(
+              "<tr><td>" + document.getElementById('id_image').files[0].name + "</td></tr>"
+            );
+            console.log($(this)[0].files[0]);
+        });
+    </script>
+{% endblock %}

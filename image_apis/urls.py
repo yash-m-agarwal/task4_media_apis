@@ -18,7 +18,16 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+from apis import views
+
 urlpatterns = [
+    url(r'^images/$', views.all_images, name='all_images'),
+    url(r'^image/(?P<pk>\d+)/$', views.image_view, name='image_view'),
+    url(r'^image/new$', views.new_upload, name='new_upload'),
+    url(r'^image/search_name$', views.find_image_by_name, name='find_image_by_name'),
+    url(r'^image/(?P<username>[\w.@+-]+)/$', views.images_by_name, name='images_by_name'),
+    url(r'^image/(?P<pk>\d+)/update/$', views.update_image, name='update_image'),
+    url(r'^image/(?P<pk>\d+)/delete/$', views.delete_image, name='delete_image'),
     url(r'^admin/', admin.site.urls),
 ]
 

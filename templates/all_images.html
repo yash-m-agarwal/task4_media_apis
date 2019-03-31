@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for image in images %}
+    <div class="card">
+        <a href="{{ image.image.url }}"><img class="card-img-top" src="{{ image.image.url }}" alt="Image"></a>
+        <div class="card-body">
+            <h5 class="card-title">{{ image.name }}</h5>
+            <p class="card-text">{{ image.description }}</p>
+            <p class="card-text">Created by: {{ image.createdby }}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+    <a href="{% url 'new_upload' %}">
+        <button type="button" class="btn btn-primary my-4">
+            <span class="glyphicon glyphicon-cloud-upload"></span> Upload Image
+        </button>
+    </a>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}
