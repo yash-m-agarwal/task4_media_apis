@@ -32,7 +32,7 @@ This application is build for implementing Media APIs.
 * The above steps starts the development server on localhost:8000. Go to `http://localhost:8000/` in your browser.
 
 # Configuring MySQL database:
-The followwing segment guides how to use Mysql database
+The following segment guides how to use Mysql database
 
 #### Configuring MySQL with the project(Linux)
 * Install mysql and setup
